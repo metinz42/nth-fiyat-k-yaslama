@@ -16,7 +16,7 @@ def trendyol():
     search = driver.find_element(By.CSS_SELECTOR,".gLFyf")
     search.send_keys(f"{urun} {detailProduct}  site:trendyol.com")
     search.send_keys(Keys.ENTER)
-    site = driver.find_element(By.XPATH,"//*[@id='rso']/div[1]/div/div/div[1]/div/a/h3")
+    site = driver.find_element(By.CLASS_NAME,"yuRUbf")
     site.click()
     time.sleep(2)
     productName = driver.find_element(By.CLASS_NAME,"pr-new-br").text
@@ -30,7 +30,7 @@ def n11():
     search.send_keys(f"{urun} {detailProduct}  site:n11.com")
     search.send_keys(Keys.ENTER)
     time.sleep(1)
-    site = driver.find_element(By.XPATH,"//*[@id='rso']/div[1]/div/div/div[1]/div/a/h3")
+    site = driver.find_element(By.CLASS_NAME,"yuRUbf")
     site.click()
     time.sleep(2)
     productName = driver.find_element(By.CLASS_NAME,"nameHolder").text
@@ -44,7 +44,7 @@ def hepsiburada():
     search.send_keys(f"{urun} {detailProduct}  site:hepsiburada.com")
     search.send_keys(Keys.ENTER)
     time.sleep(1)
-    site = driver.find_element(By.XPATH,"//*[@id='rso']/div[1]/div/div/div[1]/div/a/h3")
+    site = driver.find_element(By.CLASS_NAME,"yuRUbf")
     site.click()
     time.sleep(2)
     productName = driver.find_element(By.ID,"product-name").text
