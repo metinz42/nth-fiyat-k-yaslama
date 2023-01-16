@@ -7,8 +7,12 @@ from selenium.webdriver.common.keys import Keys
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(options=options)
-urun = input("Ürün adı: ")
-detailProduct = input("Ürün modeli: ")
+
+def question():
+    global urun
+    global detailProduct
+    urun = input("Ürün adı: ")
+    detailProduct = input("Ürün modeli: ")
 
 
 def trendyol():
@@ -58,24 +62,62 @@ def whichSite():
         sites = input(": ")
         if sites == "n11":
             n11()
+            time.sleep(2)
+            m = str(input("Başka ürün aramak istiyormusunuz (evet-hayır): "))
+            driver.get("https://www.google.com/")
+            if m == "evet":
+                question()
+                whichSite()
+            else:
+                print("çıkış yapılıyor")
+                time.sleep(3)
         elif sites == "trendyol":
             trendyol()
+            m = str(input("Başka ürün aramak istiyormusunuz (evet-hayır): "))
+            driver.get("https://www.google.com/")
+            if m == "evet":
+                question()
+                whichSite()
+            else:
+                print("çıkış yapılıyor")
+                time.sleep(3)
         elif sites == "hepsiburada":
             hepsiburada()
+            m = str(input("Başka ürün aramak istiyormusunuz (evet-hayır): "))
+            driver.get("https://www.google.com/")
+            if m == "evet":
+                question()
+                whichSite()
+            else:
+                print("çıkış yapılıyor")
+                time.sleep(3)
         elif sites == "hepsi":
             trendyol()
             print(" ")
             n11()
             print(" ")
             hepsiburada()
+            print(" ")
+            m = str(input("Başka ürün aramak istiyormusunuz (evet-hayır): "))
+            driver.get("https://www.google.com/")
+            if m == "evet":
+                question()
+                whichSite()
+            else:
+                print("çıkış yapılıyor")
+                time.sleep(3)
         else:
             print("Hata geçersiz site ismi!!")
             print("Tekrar deneyiniz")
             print("...")
             time.sleep(2)
+            question()
             whichSite()
 
-    except Exception as e:
-        print(f"Hata: {e}")
+    except Exception :
+        print(f"HATA DAHA FAZLA DETAY VERİN")
+        question()
+        whichSite()
 
+question()
 whichSite()
