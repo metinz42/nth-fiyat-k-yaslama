@@ -30,7 +30,7 @@ def n11():
     search.send_keys(f"{urun} {detailProduct}  site:n11.com")
     search.send_keys(Keys.ENTER)
     time.sleep(1)
-    site = driver.find_element(By.CLASS_NAME,"yuRUbf")
+    site = driver.find_element(By.CLASS_NAME,"yuRUbf") #.find_element(By.TAG_NAME,"a").get_attribute("href")
     site.click()
     time.sleep(2)
     productName = driver.find_element(By.CLASS_NAME,"nameHolder").text
@@ -79,6 +79,3 @@ def whichSite():
         print(f"Hata: {e}")
 
 whichSite()
-
-
-
